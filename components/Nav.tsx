@@ -177,7 +177,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                 <a
                   href={l.href}
                   onClick={(e) => go(e, l.href)}
-                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] transition-opacity duration-300 hover:opacity-60 ${theme === "light" ? "text-ink" : "text-cream"}`}
+                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] ${theme === "light" ? "text-ink" : "text-cream"}`}
                 >
                   {l.label}
                   <span className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-500 group-hover:w-full ${theme === "light" ? "bg-ink" : "bg-cream"}`} />
