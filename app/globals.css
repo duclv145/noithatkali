@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #f1e9da;
+  --umber: #1a1411;
+  --gold: #c8983d;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  background: var(--umber);
+}
+
+body {
+  background: var(--cream);
+  color: var(--umber);
+  overflow-x: clip;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--umber);
+}
+
+/* Hide native cursor on devices with a fine pointer (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Anti-FOUC: hide animated elements until GSAP applies their start state,
+   preventing the "flash of final layout then jump" flicker on first load. */
+.fouc-hide {
+  visibility: hidden;
+}
+
+/* Reveal helpers */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+
+.will-reveal {
+  will-change: transform;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px var(--umber);
+  color: transparent;
+}
+
+.text-stroke-cream {
+  -webkit-text-stroke: 1px var(--cream);
+  color: transparent;
+}

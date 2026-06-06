@@ -1,0 +1,208 @@
+import Image from "next/image";
+import { projects } from "@/lib/projects";
+import ProjectsSlider from "@/components/ProjectsSlider";
+
+const blogPosts = [
+  {
+    date: "27.04.2026",
+    title: "Căn nhà trở về đúng nhịp sống của gia chủ",
+    image: "/images/projects/minh/2.jpg",
+  },
+  {
+    date: "31.05.2026",
+    title: "Vật liệu gỗ và cảm giác ấm trong không gian Việt",
+    image: "/images/workshop/2.jpg",
+  },
+  {
+    date: "26.02.2026",
+    title: "Từ bản vẽ đến xưởng: một hành trình cần sự tỉ mỉ",
+    image: "/images/projects/hoa/4.jpg",
+  },
+];
+
+const featured = [
+  projects[0],
+  projects[1],
+  projects[2],
+  projects[3],
+].filter(Boolean);
+
+export default function EditorialSections() {
+  return (
+    <div className="bg-[#f7f6f1] text-ink">
+      <section
+        id="intro"
+        className="border-b border-ink/10 px-4 pb-20 pt-16 md:px-6 md:pb-28 md:pt-24 lg:px-10"
+      >
+        <h2 className="reveal-heading font-display text-3xl font-semibold uppercase leading-[1.15] tracking-normal text-ink md:text-4xl lg:text-5xl">
+          Sự thấu cảm định hình mọi không gian,<br />
+          từ ấn tượng đầu tiên đến chi tiết cuối cùng.
+        </h2>
+
+        <div className="mt-24 grid md:mt-28 md:grid-cols-12 md:gap-8">
+          <div className="reveal-img relative mx-auto aspect-[3/2] w-48 overflow-hidden md:col-span-3 md:col-start-7 md:mx-0 md:w-56 lg:w-64">
+            <Image
+              src="/images/hero/hero-1.jpg"
+              alt="Chi tiết nội thất Kali"
+              fill
+              sizes="(max-width: 768px) 192px, 256px"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        <div
+          id="services"
+          className="mt-8 grid gap-10 border-t border-ink/10 pt-7 md:grid-cols-12 md:gap-8"
+        >
+          <p className="reveal-text text-sm font-semibold uppercase leading-[1.1] text-ink md:col-span-3 md:text-[15px]">
+            Thiết kế nội thất
+            <br />
+            cho mái ấm Việt
+          </p>
+
+          <div className="reveal-text max-w-[480px] text-sm font-medium leading-[1.42] text-ink md:col-span-4 md:col-start-7 md:text-[16px] md:leading-[1.38]">
+            <p>
+              KALI bắt đầu mỗi dự án bằng cách lắng nghe nhịp sống của gia chủ:
+              cách một gia đình nấu ăn, nghỉ ngơi, tiếp khách và lưu giữ ký ức.
+              Từ đó, chúng tôi biến công năng, vật liệu và ánh sáng thành một
+              tổng thể ấm áp, bền vững và có cá tính riêng.
+            </p>
+            <p className="mt-5">
+              Mỗi không gian được phát triển từ concept, bản vẽ kỹ thuật đến
+              thi công tại xưởng. Tất cả nhằm tạo ra một trải nghiệm liền mạch:
+              rõ ràng khi làm việc, tinh tế khi bàn giao và đáng sống trong
+              nhiều năm sau đó.
+            </p>
+          </div>
+
+          <a
+            href="#contact"
+            className="reveal-text self-start justify-self-start text-sm font-semibold uppercase text-ink transition-opacity hover:opacity-60 md:col-span-2 md:col-start-11 md:justify-self-end md:text-[15px]"
+          >
+            Tư vấn +
+          </a>
+        </div>
+      </section>
+
+      <ProjectsSlider />
+
+      <section className="px-4 py-20 md:px-6 md:py-28 lg:px-10">
+        <h2 className="reveal-heading max-w-6xl font-display text-3xl font-semibold uppercase leading-[1.15] tracking-normal text-ink md:text-4xl lg:text-5xl">
+          Nhật ký KALI lưu lại ý tưởng,<br />
+          vật liệu và câu chuyện thi công mỗi ngày.
+        </h2>
+
+        <div className="mt-14 flex items-center justify-between">
+          <p className="reveal-text text-[11px] font-medium uppercase text-ink">
+            Bài viết mới
+          </p>
+          <a
+            href="#contact"
+            className="text-[11px] font-medium uppercase text-ink transition-opacity hover:opacity-60"
+          >
+            Xem tất cả +
+          </a>
+        </div>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {blogPosts.map((post, i) => (
+            <article key={post.title}>
+              <div className="reveal-img relative aspect-[1.06] overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover reveal-img-inner"
+                />
+              </div>
+              <p className="reveal-text mt-4 text-[11px] text-ink/50">{post.date}</p>
+              <h3 className="reveal-text mt-2 max-w-sm text-xl font-medium leading-tight text-ink">
+                {post.title}
+              </h3>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="workshop"
+        className="px-4 pb-28 pt-16 md:px-6 md:pb-36 lg:px-10"
+      >
+        <h2 className="reveal-heading font-display text-7xl font-semibold uppercase leading-[0.86] tracking-normal text-ink md:text-9xl lg:text-[10rem]">
+          KALI
+        </h2>
+
+        <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-8">
+          <div
+            className="md:col-span-5"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "3fr 2fr",
+              gridTemplateRows: "1fr 1fr",
+              gap: "0.75rem",
+              height: "clamp(320px, 36vw, 560px)",
+            }}
+          >
+            <div className="reveal-img relative overflow-hidden" style={{ gridRow: "1 / 3" }}>
+              <Image
+                src="/images/workshop/4.jpg"
+                alt="Xưởng nội thất Kali"
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+                className="object-cover reveal-img-inner"
+              />
+            </div>
+            <div className="reveal-img relative overflow-hidden" style={{ gridRow: 1 }}>
+              <Image
+                src="/images/workshop/1.jpg"
+                alt="Gia công nội thất tại xưởng Kali"
+                fill
+                sizes="(max-width: 768px) 100vw, 16vw"
+                className="object-cover reveal-img-inner"
+              />
+            </div>
+            <div className="reveal-img relative overflow-hidden" style={{ gridRow: 2 }}>
+              <Image
+                src="/images/workshop/5.jpg"
+                alt="Hoàn thiện chi tiết nội thất tại xưởng Kali"
+                fill
+                sizes="(max-width: 768px) 100vw, 16vw"
+                className="object-cover reveal-img-inner"
+              />
+            </div>
+          </div>
+
+          <div className="text-sm leading-relaxed text-ink md:col-span-5 md:col-start-7">
+            <p className="reveal-text">
+              Là đội ngũ thiết kế và thi công nội thất tại Thanh Hóa, KALI làm
+              việc cùng gia chủ để tạo nên những không gian có chiều sâu, đủ
+              công năng và giàu cảm xúc.
+            </p>
+            <p className="reveal-text mt-5">
+              Sự kết nối giữa thiết kế, xưởng sản xuất và đội ngũ lắp đặt giúp
+              chúng tôi kiểm soát từng chi tiết: từ vân gỗ, tỉ lệ cánh tủ, ánh
+              sáng cho tới cảm giác khi chạm vào bề mặt hoàn thiện.
+            </p>
+            <a
+              href="#contact"
+              className="reveal-text mt-8 inline-block font-medium uppercase transition-opacity hover:opacity-60"
+            >
+              Bắt đầu dự án với KALI +
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function ProjectMeta({ title, label }: { title: string; label: string }) {
+  return (
+    <div className="mt-4 flex items-start justify-between gap-5 text-sm leading-[1.12] text-ink md:text-base lg:text-[17px] xl:text-lg">
+      <h3 className="max-w-[68%] font-medium">{title}</h3>
+      <p className="max-w-[42%] text-right font-medium text-ink/40">{label}</p>
+    </div>
+  );
+}
