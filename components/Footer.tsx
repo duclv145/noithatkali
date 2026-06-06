@@ -10,24 +10,10 @@ export default function Footer() {
       className="bg-black text-cream overflow-hidden"
     >
       {/* Top section */}
-      <div className="px-4 pt-16 md:px-6 md:pt-28 lg:px-10">
-
-        {/* CTA heading */}
-        <p className="reveal-heading font-display text-4xl font-semibold uppercase leading-[1.12] tracking-normal text-cream md:text-4xl lg:text-5xl">
-          Bắt đầu dự án<br />của bạn hôm nay.
-        </p>
-
-        {/* CTA button */}
-        <a
-          href="tel:0848616688"
-          className="mt-8 inline-flex items-center gap-3 border border-cream/20 px-6 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-colors hover:bg-cream hover:text-black"
-        >
-          Gọi 0848 61 6688
-          <span className="text-gold">→</span>
-        </a>
+      <div className="px-4 pt-14 md:px-6 md:pt-20 lg:px-10">
 
         {/* Address + email row */}
-        <div className="mt-12 border-t border-cream/10 pt-6 text-[13px] text-cream/40">
+        <div className="border-b border-cream/10 pb-6 text-[13px] text-cream/40">
           <p>Số 08 Nguyễn Duy Hiệu, P. Đông Hương, TP Thanh Hóa</p>
           <p className="mt-1">noithatkali@gmail.com · 0848 61 6688</p>
         </div>
