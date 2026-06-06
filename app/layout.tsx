@@ -55,7 +55,7 @@ export default function RootLayout({
       lang="vi"
       className={`${grotesk.variable} ${serif.variable} ${body.variable}`}
     >
-      <body className="grain antialiased">{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
