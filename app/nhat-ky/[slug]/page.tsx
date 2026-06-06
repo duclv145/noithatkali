@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <div className="bg-[#f7f6f1] text-ink">
 
         {/* ── Article header ── */}
-        <div className="border-b border-ink/10 px-6 pb-10 pt-28 md:px-10 md:pb-16 md:pt-32">
+        <div className="border-b border-ink/10 px-6 pb-10 pt-10 md:px-10 md:pb-16 md:pt-14">
           {/* Meta row */}
           <div className="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink/40">
             <Link href="/" className="transition-opacity hover:text-ink">← KALI</Link>

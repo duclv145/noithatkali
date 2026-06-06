@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="bg-[#f7f6f1] text-ink">
 
         {/* ── Project header ── */}
-        <div className="border-b border-ink/10 px-6 pb-10 pt-28 md:px-10 md:pb-14 md:pt-32">
+        <div className="border-b border-ink/10 px-6 pb-10 pt-10 md:px-10 md:pb-14 md:pt-14">
           {/* Breadcrumb */}
           <div className="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink/40">
             <Link href="/#projects" className="transition-opacity hover:text-ink">← Dự án</Link>
