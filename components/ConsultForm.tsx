@@ -36,10 +36,10 @@ export default function ConsultForm() {
   return (
     <section
       id="consult"
-      className="bg-umber px-6 py-20 text-cream md:px-10 md:py-28"
+      className="bg-umber px-4 py-20 text-cream md:px-6 md:py-28 lg:px-10"
     >
       {/* ── 2-col: info left / form right ── */}
-      <div className="mx-auto max-w-6xl md:grid md:grid-cols-12 md:gap-16">
+      <div className="md:grid md:grid-cols-12 md:gap-16">
 
         {/* Left: heading + contact info */}
         <div className="mb-12 md:col-span-5 md:mb-0">
