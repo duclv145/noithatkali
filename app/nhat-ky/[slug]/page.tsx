@@ -62,14 +62,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         {/* ── Article header ── */}
         <div className="border-b border-ink/10 px-6 pb-10 pt-10 md:px-10 md:pb-16 md:pt-14">
-          {/* Meta row */}
-          <div className="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink/40">
-            <Link href="/" className="transition-opacity hover:text-ink">← KALI</Link>
-            <span>/</span>
-            <span>{article.category}</span>
-            <span>/</span>
-            <span>{article.date}</span>
-          </div>
 
           {/* Big centered title */}
           <h1 className="mx-auto max-w-4xl text-center font-display text-3xl font-semibold uppercase leading-[1.08] tracking-normal text-ink md:text-5xl lg:text-6xl">
