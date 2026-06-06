@@ -58,7 +58,7 @@ export default function ConsultForm() {
 
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-gold">—</span>
+                <span className="text-lg">☎</span>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Hotline</p>
                   <a href="tel:0848616688" className="mt-1 block text-cream transition-opacity hover:opacity-60">
@@ -67,7 +67,7 @@ export default function ConsultForm() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-gold">—</span>
+                <span className="text-lg">📍</span>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Showroom</p>
                   <p className="mt-1 text-cream/70">
@@ -76,7 +76,7 @@ export default function ConsultForm() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-gold">—</span>
+                <span className="text-lg">🕐</span>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Giờ làm việc</p>
                   <p className="mt-1 text-cream/70">08:00 — 22:00 · Tất cả các ngày</p>
