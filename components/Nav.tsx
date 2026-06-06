@@ -21,6 +21,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
   const root = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const animatingRef = useRef(false);
   const lastY = useRef(0);
@@ -28,6 +29,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
   useEffect(() => {
     const update = () => {
       const y = window.scrollY;
+      setScrolled(y > 80);
       if (y < 80) {
         setHidden(false);
       } else if (y > lastY.current + 4) {
@@ -123,6 +125,8 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
           hidden && !menuOpen
             ? "pointer-events-none -translate-y-full opacity-0"
             : "translate-y-0 opacity-100"
+        } ${
+          scrolled ? "bg-umber/90 backdrop-blur-md shadow-sm" : ""
         }`}
       >
         <nav className="flex items-center justify-between px-6 py-5 md:px-10">
