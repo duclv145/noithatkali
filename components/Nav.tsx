@@ -27,6 +27,11 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
     return () => window.removeEventListener("scroll", update);
   }, []);
 
+  // Ensure body scroll is restored if Nav unmounts while menu is open
+  useEffect(() => {
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
   // Animate overlay when menuOpen changes
   useEffect(() => {
     const el = overlayRef.current;

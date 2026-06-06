@@ -9,6 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll() {
   useEffect(() => {
+    // Touch devices use native inertial scroll — Lenis is desktop-only
+    if (window.matchMedia("(hover: none)").matches) return;
+
     const lenis = new Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
