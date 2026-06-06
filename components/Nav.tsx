@@ -122,9 +122,13 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                 />
               </Link>
             ) : (
-              <a
-                href="#top"
-                onClick={(e) => go(e, "#top")}
+              <button
+                type="button"
+                onClick={() => {
+                  const lenis = (window as unknown as { lenis?: { scrollTo: (t: number, o?: object) => void } }).lenis;
+                  if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+                  else window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className="nav-item block"
                 aria-label="KALI Furniture"
               >
@@ -140,7 +144,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                       : "[filter:brightness(0)_invert(94%)_sepia(15%)_brightness(0.95)]"
                   }`}
                 />
-              </a>
+              </button>
             )}
           </div>
 
