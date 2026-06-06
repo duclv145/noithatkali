@@ -131,9 +131,9 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
       >
         <nav className="flex items-center justify-between px-6 py-5 md:px-10">
           {/* Logo */}
-          <div>
+          <div className="overflow-hidden py-1">
             {theme === "light" ? (
-              <Link href="/" className="nav-item block transition-transform duration-300 hover:scale-105" aria-label="KALI Furniture">
+              <Link href="/" className="nav-item block transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-75" aria-label="KALI Furniture">
                 <Image
                   src="/images/brand/Logo-Kali.png"
                   alt="KALI Furniture"
@@ -151,7 +151,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                   if (lenis) lenis.scrollTo(0, { duration: 1.2 });
                   else window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="nav-item block transition-transform duration-300 hover:scale-105"
+                className="nav-item block transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-75"
                 aria-label="KALI Furniture"
               >
                 <Image
@@ -173,11 +173,11 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
           {/* Desktop nav */}
           <ul className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
-              <li key={l.href}>
+              <li key={l.href} className="overflow-hidden py-1">
                 <a
                   href={l.href}
                   onClick={(e) => go(e, l.href)}
-                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] transition-transform duration-300 hover:scale-110 ${theme === "light" ? "text-ink" : "text-cream"}`}
+                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-75 ${theme === "light" ? "text-ink" : "text-cream"}`}
                 >
                   {l.label}
                   <span className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-500 group-hover:w-full ${theme === "light" ? "bg-ink" : "bg-cream"}`} />
