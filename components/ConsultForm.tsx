@@ -47,7 +47,7 @@ export default function ConsultForm() {
             Đăng ký tư vấn miễn phí
           </p>
           <h2 className="font-display text-4xl font-semibold uppercase leading-[1.05] text-cream md:text-5xl">
-            Bắt đầu<br />dự án<br />của bạn.
+            Bắt đầu<br />dự án của bạn.
           </h2>
 
           <div className="mt-10 space-y-6 border-t border-cream/10 pt-8 text-sm text-cream/50">
