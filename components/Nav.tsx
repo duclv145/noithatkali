@@ -135,7 +135,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
       >
         <nav className="flex items-center justify-between px-6 py-5 md:px-10">
           {/* Logo */}
-          <div className="overflow-hidden">
+          <div>
             {theme === "light" ? (
               <Link href="/" className="nav-item block" aria-label="KALI Furniture">
                 <Image
