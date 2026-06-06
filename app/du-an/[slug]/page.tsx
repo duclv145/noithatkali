@@ -5,6 +5,7 @@ import { projects } from "@/lib/projects";
 import Footer from "@/components/Footer";
 import ArticleShell from "@/components/ArticleShell";
 import SmoothScroll from "@/components/SmoothScroll";
+import SubPageModal from "@/components/SubPageModal";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -33,7 +34,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <SmoothScroll />
       <ArticleShell />
 
-      <div className="bg-[#f7f6f1] text-ink">
+      <SubPageModal>
+      <div className="text-ink">
 
         {/* ── Project header ── */}
         <div className="border-b border-ink/10 px-6 pb-10 pt-10 md:px-10 md:pb-14 md:pt-14">
@@ -104,6 +106,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         <Footer />
       </div>
+      </SubPageModal>
     </>
   );
 }
