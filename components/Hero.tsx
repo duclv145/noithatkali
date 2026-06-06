@@ -8,6 +8,9 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+// Persist flag so hero intro doesn't replay on SPA return navigation
+let heroHasAnimated = false;
+
 const videos = ["/video/video1.mp4", "/video/video2.mp4", "/video/video3.mp4"];
 
 export default function Hero({ ready }: { ready: boolean }) {
@@ -39,9 +42,12 @@ export default function Hero({ ready }: { ready: boolean }) {
     () => {
       if (!ready) return;
 
-      // Reveal the (initially fouc-hidden) layers now that GSAP controls them,
-      // so the browser never paints the final layout before the intro runs.
+      // Always make content visible
       gsap.set([".hero-bg", ".hero-content"], { visibility: "visible" });
+
+      // Skip intro animation on SPA return — show content immediately
+      if (heroHasAnimated) return;
+      heroHasAnimated = true;
 
       const tl = gsap.timeline({ delay: 0.1 });
 

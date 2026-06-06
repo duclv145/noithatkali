@@ -6,6 +6,9 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
+// Persist across SPA navigations so animation doesn't replay on return visits
+let navHasAnimated = false;
+
 const links = [
   { label: "Giới thiệu", href: "#intro" },
   { label: "Dịch vụ", href: "#services" },
@@ -69,14 +72,17 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
     () => {
       if (!ready) return;
       gsap.set(root.current, { visibility: "visible" });
-      gsap.from(".nav-item", {
-        yPercent: -140,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.07,
-        ease: "power4.out",
-        delay: 0.2,
-      });
+      if (!navHasAnimated) {
+        navHasAnimated = true;
+        gsap.from(".nav-item", {
+          yPercent: -140,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.07,
+          ease: "power4.out",
+          delay: 0.2,
+        });
+      }
     },
     { scope: root, dependencies: [ready] }
   );
