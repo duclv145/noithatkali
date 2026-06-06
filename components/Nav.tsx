@@ -20,13 +20,25 @@ const links = [
 export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?: "light" | "dark" }) {
   const root = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const animatingRef = useRef(false);
+  const lastY = useRef(0);
 
   useEffect(() => {
-    const update = () => setIsScrolled(window.scrollY > 80);
-    update();
+    const update = () => {
+      const y = window.scrollY;
+      if (y < 80) {
+        setHidden(false);
+      } else if (y > lastY.current + 4) {
+        // Scrolling down — hide
+        setHidden(true);
+      } else if (lastY.current - y > 4) {
+        // Scrolling up — show
+        setHidden(false);
+      }
+      lastY.current = y;
+    };
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
   }, []);
@@ -107,8 +119,8 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
     <>
       <header
         ref={root}
-        className={`fouc-hide fixed inset-x-0 top-0 z-[9000] transition-all duration-1000 ease-out ${
-          isScrolled && !menuOpen
+        className={`fouc-hide fixed inset-x-0 top-0 z-[9000] transition-all duration-500 ease-out ${
+          hidden && !menuOpen
             ? "pointer-events-none -translate-y-full opacity-0"
             : "translate-y-0 opacity-100"
         }`}
