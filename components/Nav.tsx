@@ -131,7 +131,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
       >
         <nav className="flex items-center justify-between px-6 py-5 md:px-10">
           {/* Logo */}
-          <div className="overflow-hidden">
+          <div>
             {theme === "light" ? (
               <Link href="/" className="nav-item block transition-transform duration-300 hover:scale-105" aria-label="KALI Furniture">
                 <Image
@@ -173,7 +173,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
           {/* Desktop nav */}
           <ul className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
-              <li key={l.href} className="overflow-hidden">
+              <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={(e) => go(e, l.href)}
