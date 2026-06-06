@@ -7,25 +7,30 @@ export default function Footer() {
       id="contact"
       className="overflow-hidden bg-black text-cream"
     >
-      {/* Giant brand name */}
-      <div className="relative flex items-end justify-between px-2 pt-10 md:px-3 md:pt-14 lg:px-4">
-        <span
-          className="select-none font-display text-[22vw] font-semibold uppercase leading-[0.82] tracking-tight"
-          style={{ color: "rgba(241,233,218,0.07)" }}
+      {/* Giant KALI watermark — scales to fill full width */}
+      <div className="overflow-hidden px-2 pt-10 md:px-3 md:pt-14">
+        <p
+          className="select-none whitespace-nowrap font-display font-semibold uppercase leading-none tracking-tight"
+          style={{
+            fontSize: "clamp(80px, 22vw, 340px)",
+            color: "rgba(241,233,218,0.07)",
+          }}
         >
           KALI
-        </span>
+        </p>
+      </div>
 
-        {/* Copyright + back to top */}
-        <div className="absolute bottom-[1.5vw] right-4 flex items-center gap-6 md:right-6 lg:right-10">
-          <span className="text-xs text-cream/30">© Kali Furniture {year}</span>
-          <a
-            href="#top"
-            className="text-sm font-medium uppercase tracking-[0.14em] text-cream/60 transition-opacity hover:text-cream"
-          >
-            Back to top ↑
-          </a>
-        </div>
+      {/* Bottom bar */}
+      <div className="flex items-center justify-between border-t border-cream/10 px-4 py-5 md:px-6 lg:px-10">
+        <span className="text-[11px] uppercase tracking-[0.16em] text-cream/30">
+          © Kali Furniture {year}
+        </span>
+        <a
+          href="#top"
+          className="text-[11px] font-medium uppercase tracking-[0.18em] text-cream/50 transition-opacity hover:text-cream"
+        >
+          Back to top ↑
+        </a>
       </div>
     </footer>
   );
