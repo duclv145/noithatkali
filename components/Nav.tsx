@@ -140,7 +140,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                   width={148}
                   height={57}
                   priority
-                  className="h-9 w-auto transition-all duration-300 md:h-11 [filter:brightness(0)_sepia(20%)_saturate(0.4)]"
+                  className="h-9 w-auto transition-all duration-300 hover:scale-105 md:h-11 [filter:brightness(0)_sepia(20%)_saturate(0.4)]"
                 />
               </Link>
             ) : (
@@ -160,7 +160,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                   width={148}
                   height={57}
                   priority
-                  className={`h-9 w-auto transition-all duration-300 md:h-11 ${
+                  className={`h-9 w-auto transition-all duration-300 hover:scale-105 md:h-11 ${
                     menuOpen
                       ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
                       : "[filter:brightness(0)_invert(94%)_sepia(15%)_brightness(0.95)]"
@@ -177,7 +177,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                 <a
                   href={l.href}
                   onClick={(e) => go(e, l.href)}
-                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] ${theme === "light" ? "text-ink" : "text-cream"}`}
+                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] transition-opacity duration-300 hover:opacity-60 ${theme === "light" ? "text-ink" : "text-cream"}`}
                 >
                   {l.label}
                   <span className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-500 group-hover:w-full ${theme === "light" ? "bg-ink" : "bg-cream"}`} />
