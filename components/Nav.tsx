@@ -144,7 +144,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                   width={148}
                   height={57}
                   priority
-                  className="h-9 w-auto transition-all duration-300 hover:scale-105 md:h-11 [filter:brightness(0)_sepia(20%)_saturate(0.4)]"
+                  className="h-9 w-auto transition-all duration-500 hover:scale-105 hover:[filter:none] md:h-11 [filter:brightness(0)_sepia(20%)_saturate(0.4)]"
                 />
               </Link>
             ) : (
@@ -164,7 +164,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                   width={148}
                   height={57}
                   priority
-                  className={`h-9 w-auto transition-all duration-300 hover:scale-105 md:h-11 ${
+                  className={`h-9 w-auto transition-all duration-500 hover:scale-105 hover:[filter:none] md:h-11 ${
                     menuOpen
                       ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
                       : "[filter:brightness(0)_invert(94%)_sepia(15%)_brightness(0.95)]"
