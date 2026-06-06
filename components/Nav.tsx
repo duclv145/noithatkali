@@ -10,7 +10,7 @@ const links = [
   { label: "Dịch vụ", href: "#services" },
   { label: "Dự án", href: "#projects" },
   { label: "Xưởng", href: "#workshop" },
-  { label: "Liên hệ", href: "#contact" },
+  { label: "Tư vấn", href: "#consult" },
 ];
 
 export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?: "light" | "dark" }) {
