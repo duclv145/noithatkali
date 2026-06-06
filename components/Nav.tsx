@@ -126,7 +126,11 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
             ? "pointer-events-none -translate-y-full opacity-0"
             : "translate-y-0 opacity-100"
         } ${
-          scrolled ? "bg-umber/90 backdrop-blur-md shadow-sm" : ""
+          scrolled
+            ? theme === "light"
+              ? "bg-white/95 backdrop-blur-md shadow-sm"
+              : "bg-umber/90 backdrop-blur-md shadow-sm"
+            : ""
         }`}
       >
         <nav className="flex items-center justify-between px-6 py-5 md:px-10">
