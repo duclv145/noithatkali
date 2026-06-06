@@ -59,65 +59,50 @@ export default function ProjectsSlider() {
         </a>
       </div>
 
-      {/* Bento grid — 3-col CSS Grid so bottom edges align */}
+      {/* Mobile layout — stacked cards */}
+      <div className="flex flex-col gap-4 md:hidden">
+        {[featured, p1, p2, p3].map((p) => (
+          <div key={p.slug}>
+            <ProjectThumb project={p} imgSizes="100vw" className="block aspect-[4/3] w-full" />
+            <div className="mt-3 flex items-baseline justify-between gap-4">
+              <h3 className="font-sans text-base font-medium leading-snug text-ink">{p.title}</h3>
+              <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40">{p.material}</p>
+            </div>
+          </div>
+        ))}
+        <a href="#contact" className="mt-2 text-sm font-medium text-ink transition-opacity hover:opacity-60">
+          Tất cả dự án →
+        </a>
+      </div>
+
+      {/* Desktop bento grid — 3-col */}
       <div
-        className="grid gap-3 md:gap-4 lg:gap-5"
+        className="hidden gap-3 md:grid md:gap-4 lg:gap-5"
         style={{
           gridTemplateColumns: "57fr 21.5fr 21.5fr",
           gridTemplateRows: "1fr auto 1fr auto",
           height: "clamp(400px, 54vw, 780px)",
         }}
       >
-        {/* Featured image — spans image rows 1 & 3 (+ middle label row) */}
-        <ProjectThumb
-          project={featured}
-          imgSizes="57vw"
-          style={{ gridColumn: 1, gridRow: "1 / 4" }}
-        />
-        {/* Featured label — bottom label row */}
+        <ProjectThumb project={featured} imgSizes="57vw" style={{ gridColumn: 1, gridRow: "1 / 4" }} />
         <div className="flex items-baseline justify-between gap-4" style={{ gridColumn: 1, gridRow: 4 }}>
-          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">
-            {featured.title}
-          </h3>
-          <p className="shrink-0 text-[10px] font-medium uppercase tracking-[0.18em] text-ink/40 md:text-xs">
-            Dự án tiêu biểu
-          </p>
+          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">{featured.title}</h3>
+          <p className="shrink-0 text-[10px] font-medium uppercase tracking-[0.18em] text-ink/40 md:text-xs">Dự án tiêu biểu</p>
         </div>
-
-        {/* p1 image — col 2, row 1 */}
         <ProjectThumb project={p1} imgSizes="22vw" style={{ gridColumn: 2, gridRow: 1 }} />
-        {/* p1 label — col 2, row 2 */}
         <div className="flex items-baseline justify-between gap-2" style={{ gridColumn: 2, gridRow: 2 }}>
-          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">
-            {p1.title}
-          </h3>
-          <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40 md:text-xs">
-            {p1.material}
-          </p>
+          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">{p1.title}</h3>
+          <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40 md:text-xs">{p1.material}</p>
         </div>
-
-        {/* p2 image — col 3, row 1 */}
         <ProjectThumb project={p2} imgSizes="22vw" style={{ gridColumn: 3, gridRow: 1 }} />
-        {/* p2 label — col 3, row 2 */}
         <div className="flex items-baseline justify-between gap-2" style={{ gridColumn: 3, gridRow: 2 }}>
-          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">
-            {p2.title}
-          </h3>
-          <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40 md:text-xs">
-            {p2.material}
-          </p>
+          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">{p2.title}</h3>
+          <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40 md:text-xs">{p2.material}</p>
         </div>
-
-        {/* p3 image — col 2-3, row 3 */}
         <ProjectThumb project={p3} imgSizes="43vw" style={{ gridColumn: "2 / 4", gridRow: 3 }} />
-        {/* p3 label — col 2-3, row 4 */}
         <div className="flex items-baseline justify-between gap-4" style={{ gridColumn: "2 / 4", gridRow: 4 }}>
-          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">
-            {p3.title}
-          </h3>
-          <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40 md:text-xs">
-            {p3.material}
-          </p>
+          <h3 className="font-sans text-base font-medium leading-snug text-ink md:text-lg lg:text-xl">{p3.title}</h3>
+          <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40 md:text-xs">{p3.material}</p>
         </div>
       </div>
     </section>
