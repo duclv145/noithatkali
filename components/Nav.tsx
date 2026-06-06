@@ -133,7 +133,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
           {/* Logo */}
           <div className="overflow-hidden">
             {theme === "light" ? (
-              <Link href="/" className="nav-item block" aria-label="KALI Furniture">
+              <Link href="/" className="nav-item block transition-transform duration-300 hover:scale-105" aria-label="KALI Furniture">
                 <Image
                   src="/images/brand/Logo-Kali.png"
                   alt="KALI Furniture"
@@ -151,7 +151,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                   if (lenis) lenis.scrollTo(0, { duration: 1.2 });
                   else window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="nav-item block"
+                className="nav-item block transition-transform duration-300 hover:scale-105"
                 aria-label="KALI Furniture"
               >
                 <Image
@@ -177,7 +177,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
                 <a
                   href={l.href}
                   onClick={(e) => go(e, l.href)}
-                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] ${theme === "light" ? "text-ink" : "text-cream"}`}
+                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] transition-transform duration-300 hover:scale-110 ${theme === "light" ? "text-ink" : "text-cream"}`}
                 >
                   {l.label}
                   <span className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-500 group-hover:w-full ${theme === "light" ? "bg-ink" : "bg-cream"}`} />
