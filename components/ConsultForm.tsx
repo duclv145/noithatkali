@@ -36,7 +36,7 @@ export default function ConsultForm() {
   return (
     <section
       id="consult"
-      className="bg-umber px-4 py-20 text-cream md:px-6 md:py-28 lg:px-10"
+      className="bg-black px-4 py-20 text-cream md:px-6 md:py-28 lg:px-10"
     >
       {/* ── 2-col: info left / form right ── */}
       <div className="md:grid md:grid-cols-12 md:gap-16">
@@ -57,30 +57,19 @@ export default function ConsultForm() {
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-lg">☎</span>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Hotline</p>
-                  <a href="tel:0848616688" className="mt-1 block text-cream transition-opacity hover:opacity-60">
-                    0848 61 6688
-                  </a>
-                </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Hotline</p>
+                <a href="tel:0848616688" className="mt-1 block text-cream transition-opacity hover:opacity-60">
+                  0848 61 6688
+                </a>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-lg">📍</span>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Showroom</p>
-                  <p className="mt-1 text-cream/70">
-                    08 Nguyễn Duy Hiệu, TP Thanh Hóa
-                  </p>
-                </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Showroom</p>
+                <p className="mt-1 text-cream/70">08 Nguyễn Duy Hiệu, TP Thanh Hóa</p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-lg">🕐</span>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Giờ làm việc</p>
-                  <p className="mt-1 text-cream/70">08:00 — 22:00 · Tất cả các ngày</p>
-                </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-cream/30">Giờ làm việc</p>
+                <p className="mt-1 text-cream/70">08:00 — 22:00 · Tất cả các ngày</p>
               </div>
             </div>
           </div>
