@@ -105,8 +105,7 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
           {/* Logo */}
           <div className="overflow-hidden">
             <a
-              href={theme === "light" ? "/" : "#top"}
-              onClick={(e) => theme === "light" ? undefined : go(e, "#top")}
+              href="/"
               className="nav-item block"
               aria-label="KALI Furniture"
             >
