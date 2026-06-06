@@ -1,22 +1,26 @@
 import Image from "next/image";
+import Link from "next/link";
 import { projects } from "@/lib/projects";
 import ProjectsSlider from "@/components/ProjectsSlider";
 
 const blogPosts = [
   {
     date: "27.04.2026",
-    title: "Căn nhà trở về đúng nhịp sống của gia chủ",
+    title: "Thi công nội thất gỗ An Cường tại Thanh Hóa – Đơn vị số 1",
     image: "/images/projects/minh/2.jpg",
+    href: "/nhat-ky/thi-cong-noi-that-go-an-cuong-tai-thanh-hoa",
   },
   {
     date: "31.05.2026",
-    title: "Vật liệu gỗ và cảm giác ấm trong không gian Việt",
+    title: "Thi công nội thất tại Thanh Hóa – Giải pháp hoàn thiện không gian",
     image: "/images/workshop/2.jpg",
+    href: "/nhat-ky/thi-cong-noi-that-tai-thanh-hoa",
   },
   {
     date: "26.02.2026",
-    title: "Từ bản vẽ đến xưởng: một hành trình cần sự tỉ mỉ",
+    title: "Thiết kế nội thất nhà phố – Giải pháp tối ưu không gian sống",
     image: "/images/projects/hoa/4.jpg",
+    href: "/nhat-ky/thiet-ke-noi-that-nha-pho",
   },
 ];
 
@@ -111,19 +115,21 @@ export default function EditorialSections() {
         <div className="mt-0 divide-y divide-ink/10 md:mt-8 md:grid md:gap-5 md:divide-y-0 md:grid-cols-3">
           {blogPosts.map((post) => (
             <article key={post.title} className="py-6 md:py-0">
-              <div className="reveal-img relative aspect-[16/10] overflow-hidden md:aspect-[1.06]">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover reveal-img-inner"
-                />
-              </div>
-              <p className="reveal-text mt-4 text-[11px] tracking-[0.12em] text-ink/40">{post.date}</p>
-              <h3 className="reveal-text mt-2 max-w-sm text-lg font-medium leading-snug text-ink md:text-xl">
-                {post.title}
-              </h3>
+              <Link href={post.href} className="group block">
+                <div className="reveal-img relative aspect-[16/10] overflow-hidden md:aspect-[1.06]">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover reveal-img-inner transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <p className="reveal-text mt-4 text-[11px] tracking-[0.12em] text-ink/40">{post.date}</p>
+                <h3 className="reveal-text mt-2 max-w-sm text-lg font-medium leading-snug text-ink transition-opacity group-hover:opacity-60 md:text-xl">
+                  {post.title}
+                </h3>
+              </Link>
             </article>
           ))}
         </div>
