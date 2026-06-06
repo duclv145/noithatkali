@@ -84,8 +84,13 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
     e.preventDefault();
     setMenuOpen(false);
     setTimeout(() => {
+      const lenis = (window as unknown as { lenis?: { scrollTo: (t: Element | number, o?: object) => void } }).lenis;
+      if (href === "#top") {
+        if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
       const el = document.querySelector(href);
-      const lenis = (window as unknown as { lenis?: { scrollTo: (t: Element, o?: object) => void } }).lenis;
       if (el && lenis) lenis.scrollTo(el, { offset: 0 });
       else el?.scrollIntoView({ behavior: "smooth" });
     }, 300);
