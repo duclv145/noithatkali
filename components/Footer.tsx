@@ -10,24 +10,31 @@ export default function Footer() {
       className="bg-black text-cream overflow-hidden"
     >
       {/* Top section */}
-      <div className="px-4 pt-20 md:px-6 md:pt-28 lg:px-10">
-        <div className="grid gap-16 md:grid-cols-12 md:gap-8">
-          {/* Left — logo + tagline + CTA */}
-          <div className="md:col-span-5">
-            <p className="reveal-heading font-display text-3xl font-semibold uppercase leading-[1.15] tracking-normal text-cream md:text-4xl lg:text-5xl">
-              Bắt đầu dự án<br />của bạn hôm nay.
-            </p>
-            <a
-              href="tel:0848616688"
-              className="mt-10 inline-flex items-center gap-3 border border-cream/20 px-6 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-colors hover:bg-cream hover:text-black"
-            >
-              Gọi 0848 61 6688
-              <span className="text-gold">→</span>
-            </a>
-          </div>
+      <div className="px-4 pt-16 md:px-6 md:pt-28 lg:px-10">
 
-          {/* Right — nav columns */}
-          <div className="grid grid-cols-3 gap-8 md:col-span-5 md:col-start-8">
+        {/* CTA heading */}
+        <p className="reveal-heading font-display text-4xl font-semibold uppercase leading-[1.12] tracking-normal text-cream md:text-4xl lg:text-5xl">
+          Bắt đầu dự án<br />của bạn hôm nay.
+        </p>
+
+        {/* CTA button */}
+        <a
+          href="tel:0848616688"
+          className="mt-8 inline-flex items-center gap-3 border border-cream/20 px-6 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-colors hover:bg-cream hover:text-black"
+        >
+          Gọi 0848 61 6688
+          <span className="text-gold">→</span>
+        </a>
+
+        {/* Address + email row */}
+        <div className="mt-12 border-t border-cream/10 pt-6 text-[13px] text-cream/40">
+          <p>Số 08 Nguyễn Duy Hiệu, P. Đông Hương, TP Thanh Hóa</p>
+          <p className="mt-1">noithatkali@gmail.com · 0848 61 6688</p>
+        </div>
+
+        {/* Nav columns — hidden on mobile, shown on desktop */}
+        <div className="hidden md:mt-16 md:grid md:grid-cols-12 md:gap-8">
+          <div className="col-span-5 col-start-8 grid grid-cols-3 gap-8">
             <FooterColumn
               title="Trang"
               items={[
@@ -59,11 +66,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Contact row */}
-        <div className="mt-20 flex flex-col gap-1 border-t border-cream/10 pt-8 text-sm text-cream/50 md:flex-row md:items-center md:justify-between">
-          <span>Số 08 Nguyễn Duy Hiệu, P. Đông Hương, TP Thanh Hóa</span>
-          <span>noithatkali@gmail.com</span>
+        {/* Mobile nav — compact horizontal list */}
+        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[12px] uppercase tracking-[0.16em] text-cream/40 md:hidden">
+          {[["Giới thiệu","#intro"],["Dự án","#projects"],["Xưởng","#workshop"],["Facebook","#contact"],["Instagram","#contact"]].map(([l,h]) => (
+            <a key={l} href={h} className="transition-opacity hover:text-cream/70">{l}</a>
+          ))}
         </div>
+
       </div>
 
       {/* Giant brand name */}

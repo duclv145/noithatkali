@@ -48,7 +48,7 @@ export default function ProjectsSlider() {
     <section id="projects" className="px-4 py-16 md:px-6 md:py-24 lg:px-10">
       {/* Section header */}
       <div className="flex items-end justify-between gap-6 border-b border-ink/10 pb-8 mb-10">
-        <h2 className="reveal-heading font-display text-5xl font-semibold uppercase leading-[1.1] tracking-normal text-ink md:text-6xl lg:text-7xl xl:text-8xl">
+        <h2 className="reveal-heading font-display text-4xl font-semibold uppercase leading-[1.1] tracking-normal text-ink md:text-6xl lg:text-7xl xl:text-8xl">
           Dự án<br />tiêu biểu
         </h2>
         <a
@@ -60,19 +60,21 @@ export default function ProjectsSlider() {
       </div>
 
       {/* Mobile layout — stacked cards */}
-      <div className="flex flex-col gap-4 md:hidden">
-        {[featured, p1, p2, p3].map((p) => (
-          <div key={p.slug}>
-            <ProjectThumb project={p} imgSizes="100vw" className="block aspect-[4/3] w-full" />
-            <div className="mt-3 flex items-baseline justify-between gap-4">
+      <div className="flex flex-col md:hidden">
+        {[featured, p1, p2, p3].map((p, i) => (
+          <div key={p.slug} className={`py-5 ${i > 0 ? "border-t border-ink/10" : ""}`}>
+            <ProjectThumb project={p} imgSizes="100vw" className="block w-full" style={{ aspectRatio: "16/10" }} />
+            <div className="mt-4 flex items-baseline justify-between gap-4">
               <h3 className="font-sans text-base font-medium leading-snug text-ink">{p.title}</h3>
-              <p className="shrink-0 text-[10px] font-medium uppercase tracking-widest text-ink/40">{p.material}</p>
+              <p className="shrink-0 text-[10px] font-medium uppercase tracking-[0.18em] text-ink/40">{p.material}</p>
             </div>
           </div>
         ))}
-        <a href="#contact" className="mt-2 text-sm font-medium text-ink transition-opacity hover:opacity-60">
-          Tất cả dự án →
-        </a>
+        <div className="border-t border-ink/10 pt-5">
+          <a href="#contact" className="text-sm font-medium uppercase tracking-[0.12em] text-ink transition-opacity hover:opacity-60">
+            Tất cả dự án →
+          </a>
+        </div>
       </div>
 
       {/* Desktop bento grid — 3-col */}

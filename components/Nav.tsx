@@ -77,7 +77,7 @@ export default function Nav({ ready }: { ready: boolean }) {
           </a>
         </div>
 
-        {/* Text nav uses difference blend so it stays legible over dark & light sections */}
+        {/* Desktop nav */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href} className="overflow-hidden">
@@ -92,6 +92,17 @@ export default function Nav({ ready }: { ready: boolean }) {
             </li>
           ))}
         </ul>
+
+        {/* Mobile menu button */}
+        <div className="overflow-hidden md:hidden">
+          <a
+            href="#contact"
+            onClick={(e) => go(e, "#contact")}
+            className="nav-item block text-xs uppercase tracking-[0.2em] text-cream"
+          >
+            Menu
+          </a>
+        </div>
 
       </nav>
     </header>

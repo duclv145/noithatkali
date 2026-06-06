@@ -34,18 +34,19 @@ export default function EditorialSections() {
         id="intro"
         className="border-b border-ink/10 px-4 pb-20 pt-16 md:px-6 md:pb-28 md:pt-24 lg:px-10"
       >
-        <h2 className="reveal-heading font-display text-3xl font-semibold uppercase leading-[1.15] tracking-normal text-ink md:text-4xl lg:text-5xl">
+        <h2 className="reveal-heading font-display text-4xl font-semibold uppercase leading-[1.12] tracking-normal text-ink md:text-4xl lg:text-5xl">
           Sự thấu cảm định hình mọi không gian,<br />
           từ ấn tượng đầu tiên đến chi tiết cuối cùng.
         </h2>
 
-        <div className="mt-24 grid md:mt-28 md:grid-cols-12 md:gap-8">
+        {/* Editorial image — hidden on mobile, shown on desktop */}
+        <div className="mt-24 hidden md:grid md:mt-28 md:grid-cols-12 md:gap-8">
           <div className="reveal-img relative mx-auto aspect-[3/2] w-48 overflow-hidden md:col-span-3 md:col-start-7 md:mx-0 md:w-56 lg:w-64">
             <Image
               src="/images/hero/hero-1.jpg"
               alt="Chi tiết nội thất Kali"
               fill
-              sizes="(max-width: 768px) 192px, 256px"
+              sizes="256px"
               className="object-cover"
             />
           </div>
@@ -53,7 +54,7 @@ export default function EditorialSections() {
 
         <div
           id="services"
-          className="mt-8 grid gap-10 border-t border-ink/10 pt-7 md:grid-cols-12 md:gap-8"
+          className="mt-8 grid gap-8 border-t border-ink/10 pt-7 md:grid-cols-12 md:gap-8 md:gap-y-10"
         >
           <p className="reveal-text text-sm font-semibold uppercase leading-[1.1] text-ink md:col-span-3 md:text-[15px]">
             Thiết kế nội thất
@@ -80,7 +81,7 @@ export default function EditorialSections() {
             href="#contact"
             className="reveal-text self-start justify-self-start text-sm font-semibold uppercase text-ink transition-opacity hover:opacity-60 md:col-span-2 md:col-start-11 md:justify-self-end md:text-[15px]"
           >
-            Tư vấn +
+            Tiếp cận →
           </a>
         </div>
       </section>
@@ -88,27 +89,29 @@ export default function EditorialSections() {
       <ProjectsSlider />
 
       <section className="px-4 py-20 md:px-6 md:py-28 lg:px-10">
-        <h2 className="reveal-heading max-w-6xl font-display text-3xl font-semibold uppercase leading-[1.15] tracking-normal text-ink md:text-4xl lg:text-5xl">
-          Nhật ký KALI lưu lại ý tưởng,<br />
-          vật liệu và câu chuyện thi công mỗi ngày.
+        {/* Editorial big statement */}
+        <h2 className="reveal-heading max-w-6xl font-display text-4xl font-semibold uppercase leading-[1.1] tracking-normal text-ink md:text-4xl lg:text-5xl">
+          Nhật ký KALI —<br />
+          ý tưởng, vật liệu<br className="md:hidden" /> và câu chuyện<br />
+          thi công mỗi ngày.
         </h2>
 
-        <div className="mt-14 flex items-center justify-between">
-          <p className="reveal-text text-[11px] font-medium uppercase text-ink">
+        <div className="mt-10 flex items-center justify-between border-b border-ink/10 pb-5 md:mt-14">
+          <p className="reveal-text text-[11px] font-medium uppercase tracking-[0.18em] text-ink/50">
             Bài viết mới
           </p>
           <a
             href="#contact"
-            className="text-[11px] font-medium uppercase text-ink transition-opacity hover:opacity-60"
+            className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink transition-opacity hover:opacity-60"
           >
-            Xem tất cả +
+            Xem tất cả →
           </a>
         </div>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {blogPosts.map((post, i) => (
-            <article key={post.title}>
-              <div className="reveal-img relative aspect-[1.06] overflow-hidden">
+        <div className="mt-0 divide-y divide-ink/10 md:mt-8 md:grid md:gap-5 md:divide-y-0 md:grid-cols-3">
+          {blogPosts.map((post) => (
+            <article key={post.title} className="py-6 md:py-0">
+              <div className="reveal-img relative aspect-[16/10] overflow-hidden md:aspect-[1.06]">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -117,8 +120,8 @@ export default function EditorialSections() {
                   className="object-cover reveal-img-inner"
                 />
               </div>
-              <p className="reveal-text mt-4 text-[11px] text-ink/50">{post.date}</p>
-              <h3 className="reveal-text mt-2 max-w-sm text-xl font-medium leading-tight text-ink">
+              <p className="reveal-text mt-4 text-[11px] tracking-[0.12em] text-ink/40">{post.date}</p>
+              <h3 className="reveal-text mt-2 max-w-sm text-lg font-medium leading-snug text-ink md:text-xl">
                 {post.title}
               </h3>
             </article>
@@ -134,15 +137,26 @@ export default function EditorialSections() {
           KALI
         </h2>
 
-        <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-8">
+        <div className="mt-6 grid gap-8 md:grid-cols-12 md:gap-8">
+          {/* Mobile: single full-width image */}
+          <div className="reveal-img relative aspect-[16/10] overflow-hidden md:hidden">
+            <Image
+              src="/images/workshop/4.jpg"
+              alt="Xưởng nội thất Kali"
+              fill
+              sizes="100vw"
+              className="object-cover reveal-img-inner"
+            />
+          </div>
+
+          {/* Desktop: 3-image bento grid */}
           <div
-            className="md:col-span-5"
+            className="hidden md:col-span-5 md:grid"
             style={{
-              display: "grid",
               gridTemplateColumns: "3fr 2fr",
               gridTemplateRows: "1fr 1fr",
               gap: "0.75rem",
-              height: "clamp(320px, 36vw, 560px)",
+              height: "clamp(280px, 60vw, 560px)",
             }}
           >
             <div className="reveal-img relative overflow-hidden" style={{ gridRow: "1 / 3" }}>
@@ -150,7 +164,7 @@ export default function EditorialSections() {
                 src="/images/workshop/4.jpg"
                 alt="Xưởng nội thất Kali"
                 fill
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="25vw"
                 className="object-cover reveal-img-inner"
               />
             </div>
@@ -159,7 +173,7 @@ export default function EditorialSections() {
                 src="/images/workshop/1.jpg"
                 alt="Gia công nội thất tại xưởng Kali"
                 fill
-                sizes="(max-width: 768px) 100vw, 16vw"
+                sizes="16vw"
                 className="object-cover reveal-img-inner"
               />
             </div>
@@ -168,7 +182,7 @@ export default function EditorialSections() {
                 src="/images/workshop/5.jpg"
                 alt="Hoàn thiện chi tiết nội thất tại xưởng Kali"
                 fill
-                sizes="(max-width: 768px) 100vw, 16vw"
+                sizes="16vw"
                 className="object-cover reveal-img-inner"
               />
             </div>
