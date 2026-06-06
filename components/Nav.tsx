@@ -13,7 +13,7 @@ const links = [
   { label: "Liên hệ", href: "#contact" },
 ];
 
-export default function Nav({ ready }: { ready: boolean }) {
+export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?: "light" | "dark" }) {
   const root = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,8 +105,8 @@ export default function Nav({ ready }: { ready: boolean }) {
           {/* Logo */}
           <div className="overflow-hidden">
             <a
-              href="#top"
-              onClick={(e) => go(e, "#top")}
+              href={theme === "light" ? "/" : "#top"}
+              onClick={(e) => theme === "light" ? undefined : go(e, "#top")}
               className="nav-item block"
               aria-label="KALI Furniture"
             >
@@ -118,6 +118,8 @@ export default function Nav({ ready }: { ready: boolean }) {
                 priority
                 className={`h-9 w-auto transition-all duration-300 md:h-11 ${
                   menuOpen
+                    ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
+                    : theme === "light"
                     ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
                     : "[filter:brightness(0)_invert(94%)_sepia(15%)_brightness(0.95)]"
                 }`}
@@ -132,10 +134,10 @@ export default function Nav({ ready }: { ready: boolean }) {
                 <a
                   href={l.href}
                   onClick={(e) => go(e, l.href)}
-                  className="nav-item group relative block text-xs uppercase tracking-[0.2em] text-cream"
+                  className={`nav-item group relative block text-xs uppercase tracking-[0.2em] ${theme === "light" ? "text-ink" : "text-cream"}`}
                 >
                   {l.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-cream transition-all duration-500 group-hover:w-full" />
+                  <span className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-500 group-hover:w-full ${theme === "light" ? "bg-ink" : "bg-cream"}`} />
                 </a>
               </li>
             ))}
@@ -145,7 +147,7 @@ export default function Nav({ ready }: { ready: boolean }) {
           <button
             onClick={() => !animatingRef.current && setMenuOpen((v) => !v)}
             className={`nav-item text-xs uppercase tracking-[0.2em] transition-colors duration-300 md:hidden ${
-              menuOpen ? "text-umber" : "text-cream"
+              menuOpen ? "text-umber" : theme === "light" ? "text-ink" : "text-cream"
             }`}
           >
             {menuOpen ? "Đóng" : "Menu"}

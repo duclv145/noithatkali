@@ -4,6 +4,7 @@ import Link from "next/link";
 import { articles, ArticleSection } from "@/lib/articles";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import ArticleShell from "@/components/ArticleShell";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -54,32 +55,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <SmoothScroll />
+      <ArticleShell />
       <div className="bg-[#f7f6f1] text-ink">
 
-        {/* ── Top nav bar ── */}
-        <div className="flex items-center justify-between border-b border-ink/10 px-6 py-4 md:px-10">
-          <Link href="/" className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-ink">
-            KALI
-          </Link>
-          <nav className="hidden items-center gap-8 md:flex">
-            {[["Dự án", "/#projects"], ["Dịch vụ", "/#services"], ["Xưởng", "/#workshop"]].map(([label, href]) => (
-              <Link key={href} href={href} className="text-xs uppercase tracking-[0.18em] text-ink/50 transition-opacity hover:text-ink">
-                {label}
-              </Link>
-            ))}
-          </nav>
-          <div className="flex items-center gap-6">
-            <Link href="/nhat-ky" className="text-xs uppercase tracking-[0.18em] text-gold">
-              Nhật ký
-            </Link>
-            <Link href="/#contact" className="hidden text-xs uppercase tracking-[0.18em] text-ink/50 transition-opacity hover:text-ink md:block">
-              Liên hệ
-            </Link>
-          </div>
-        </div>
-
         {/* ── Article header ── */}
-        <div className="border-b border-ink/10 px-6 py-10 md:px-10 md:py-16">
+        <div className="border-b border-ink/10 px-6 pb-10 pt-28 md:px-10 md:pb-16 md:pt-32">
           {/* Meta row */}
           <div className="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink/40">
             <Link href="/" className="transition-opacity hover:text-ink">← KALI</Link>
