@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -109,27 +110,38 @@ export default function Nav({ ready, theme = "dark" }: { ready: boolean; theme?:
         <nav className="flex items-center justify-between px-6 py-5 md:px-10">
           {/* Logo */}
           <div className="overflow-hidden">
-            <a
-              href={theme === "light" ? "/" : "#top"}
-              onClick={(e) => theme === "light" ? undefined : go(e, "#top")}
-              className="nav-item block"
-              aria-label="KALI Furniture"
-            >
-              <Image
-                src="/images/brand/Logo-Kali.png"
-                alt="KALI Furniture"
-                width={148}
-                height={57}
-                priority
-                className={`h-9 w-auto transition-all duration-300 md:h-11 ${
-                  menuOpen
-                    ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
-                    : theme === "light"
-                    ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
-                    : "[filter:brightness(0)_invert(94%)_sepia(15%)_brightness(0.95)]"
-                }`}
-              />
-            </a>
+            {theme === "light" ? (
+              <Link href="/" className="nav-item block" aria-label="KALI Furniture">
+                <Image
+                  src="/images/brand/Logo-Kali.png"
+                  alt="KALI Furniture"
+                  width={148}
+                  height={57}
+                  priority
+                  className="h-9 w-auto transition-all duration-300 md:h-11 [filter:brightness(0)_sepia(20%)_saturate(0.4)]"
+                />
+              </Link>
+            ) : (
+              <a
+                href="#top"
+                onClick={(e) => go(e, "#top")}
+                className="nav-item block"
+                aria-label="KALI Furniture"
+              >
+                <Image
+                  src="/images/brand/Logo-Kali.png"
+                  alt="KALI Furniture"
+                  width={148}
+                  height={57}
+                  priority
+                  className={`h-9 w-auto transition-all duration-300 md:h-11 ${
+                    menuOpen
+                      ? "[filter:brightness(0)_sepia(20%)_saturate(0.4)]"
+                      : "[filter:brightness(0)_invert(94%)_sepia(15%)_brightness(0.95)]"
+                  }`}
+                />
+              </a>
+            )}
           </div>
 
           {/* Desktop nav */}
