@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { articles, ArticleSection } from "@/lib/articles";
 import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
 import ArticleShell from "@/components/ArticleShell";
 import SubPageModal from "@/components/SubPageModal";
 
@@ -55,7 +54,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <SmoothScroll />
       <ArticleShell />
       <SubPageModal>
       <div className="text-ink">

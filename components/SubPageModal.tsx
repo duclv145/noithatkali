@@ -4,8 +4,6 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 
-type LenisInstance = { stop: () => void; start: () => void };
-
 export default function SubPageModal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -13,23 +11,14 @@ export default function SubPageModal({ children }: { children: React.ReactNode }
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    // Pause Lenis so modal can scroll natively
-    const lenis = (window as unknown as { lenis?: LenisInstance }).lenis;
-    lenis?.stop();
-
     gsap.fromTo(el,
       { y: "100vh" },
       { y: 0, duration: 0.65, ease: "power4.out" }
     );
-
-    return () => { lenis?.start(); };
   }, []);
 
   const handleClose = () => {
     const el = ref.current;
-    const lenis = (window as unknown as { lenis?: LenisInstance }).lenis;
-    lenis?.start();
     if (!el) { router.back(); return; }
     gsap.to(el, {
       y: "100vh",

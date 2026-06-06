@@ -4,7 +4,6 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import Footer from "@/components/Footer";
 import ArticleShell from "@/components/ArticleShell";
-import SmoothScroll from "@/components/SmoothScroll";
 import SubPageModal from "@/components/SubPageModal";
 
 export function generateStaticParams() {
@@ -31,7 +30,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <SmoothScroll />
       <ArticleShell />
 
       <SubPageModal>
