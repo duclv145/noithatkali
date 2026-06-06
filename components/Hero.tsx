@@ -136,14 +136,14 @@ export default function Hero({ ready }: { ready: boolean }) {
       {/* Content layer */}
       <div className="hero-content fouc-hide relative z-10 flex h-full flex-col px-6 pb-5 pt-32 md:px-10 md:pb-7">
         {/* Floating middle row: left label · centre statement · right link */}
-        <div className="mt-[10vh] grid flex-1 content-start grid-cols-3 gap-6">
+        <div className="mt-[10vh] flex flex-1 content-start items-start justify-between gap-4 md:grid md:grid-cols-3 md:gap-6">
           <span className="hero-fade text-xs uppercase leading-relaxed tracking-[0.18em] text-cream/80">
             Thiết kế &amp; thi công
             <br />
             nội thất cao cấp
           </span>
 
-          <div className="hero-fade flex items-start gap-4">
+          <div className="hero-fade hidden items-start gap-4 md:flex">
             <span className="shrink-0 text-xs uppercase tracking-[0.25em] text-gold">
               Giới thiệu
             </span>
@@ -162,7 +162,7 @@ export default function Hero({ ready }: { ready: boolean }) {
               if (el && lenis) lenis.scrollTo(el);
             }}
             data-cursor="Xem"
-            className="hero-fade justify-self-end text-right text-xs uppercase tracking-[0.18em] text-cream/90"
+            className="hero-fade text-right text-xs uppercase tracking-[0.18em] text-cream/90 md:justify-self-end"
           >
             Phương pháp →
           </a>
